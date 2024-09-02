@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <title>Car Detail</title>
+</head>
+<body>
+    <h1>Car Details</h1>
+    <p><strong>Make:</strong> {{ car.make }}</p>
+    <p><strong>Model:</strong> {{ car.model }}</p>
+    <p><strong>Year:</strong> {{ car.year }}</p>
+    <p><strong>Mileage:</strong> {{ car.mileage }}</p>
+    <p><strong>Color:</strong> {{ car.color }}</p>
+
+    <a href="{% url 'car_update' car.pk %}">Edit</a>
+    <a href="{% url 'car_delete' car.pk %}">Delete</a>
+    <a href="{% url 'car_list' %}">Back to List</a>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <title>Car Form</title>
+</head>
+<body>
+    <h1>Add/Update Car</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="make">Make:</label>
+        <input type="text" name="make" value="{{ car.make|default_if_none:'' }}" required>
+        <label for="model">Model:</label>
+        <input type="text" name="model" value="{{ car.model|default_if_none:'' }}" required>
+        <label for="year">Year:</label>
+        <input type="number" name="year" value="{{ car.year|default_if_none:'' }}" required>
+        <label for="mileage">Mileage:</label>
+        <input type="number" name="mileage" value="{{ car.mileage|default_if_none:'' }}" required>
+        <label for="color">Color:</label>
+        <input type="text" name="color" value="{{ car.color|default_if_none:'' }}" required>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

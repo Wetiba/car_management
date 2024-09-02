@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <title>Drop Off List</title>
+</head>
+<body>
+    <h1>Drop Off List</h1>
+    <ul>
+        {% for drop_off in drop_offs %}
+        <li>
+            {{ drop_off.car }} - {{ drop_off.location.latitude }}, {{ drop_off.location.longitude }} - {{ drop_off.drop_off_time }}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
